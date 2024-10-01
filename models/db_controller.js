@@ -31,8 +31,19 @@ module.exports.verify = function(username, email, token, callback) {
 
 }
 module.exports.getuserid = function(email, callback) {
-    var query = "select * from verify where email = '"+email+"'";
+    var query = "select * from `verify` where email = '"+email+"'";
     con.query(query, callback)
 }
 
+module.exports.matchtoken = function(id, token, callback) {
+    var query = "select * from `verify` where token = '"+token+"' and id = "+id+"'";
+    con.query(query, callback)
+    console.log(query)
+}
+
+module.exports.updateverify = function(email, email_status, callback) {
+    var query = "update  `users` set `email_status` = '"+email_status+"' where = `email_status` = '"+email_status+"' and `email` = '"+email+"'";
+    con.query(query, callback)
+    console.log(query)
+}
     

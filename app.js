@@ -13,7 +13,8 @@ var sweetalert2 = require('sweetalert2');
 const http = require('http');
 var db = require('./models/db_controller');
 var signup = require('./controllers/signup');
-var login = require('./controllers/login'); 
+var login = require('./controllers/login');
+var verify = require('./controllers/verify'); 
 
 var app = express();
 
@@ -30,5 +31,4 @@ server.listen(PORT,()=>console.log(`server running on port ${PORT}`));
 
 app.use('/signup', signup);
 app.use('/login', login);
-
-
+app.use('/verify', verify);
